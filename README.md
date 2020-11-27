@@ -4,9 +4,7 @@ My Express app ran into an error:
 
 "Error: ENOENT: no such file or directory, stat 'C:\Users\Patrick Louis\Desktop\CSC309\individual_project\index.html'"
 
-To view my sample application, please click "./pub/index.html".
-
-If there's an error, please run index.html in a server, by pressing "Go Live" in Microsoft Visual Studio Code.
+To view my sample application, https://immense-fjord-27450.herokuapp.com/
 
 ## Explanation of Library
 
