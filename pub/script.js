@@ -1,6 +1,11 @@
-import { mainContainer, flipCardHover, flipCardClick, bookAnimation } from './lib.js';
+import { 
+    mainContainer, 
+    flipCardHover, 
+    flipCardClick, 
+    bookAnimation 
+} from './CardAndBookFlipping/Flipping.js';
 
-mainContainer();
+mainContainer({});
 
 flipCardHover({
     width: 250,
