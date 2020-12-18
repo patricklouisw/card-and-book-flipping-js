@@ -48,13 +48,11 @@
         <h2>Documentation</h2>
         <hr>
         <div class="container">
-            <h5>Getting Started</h5>
+            <h4>Getting Started</h4>
+            <hr style="margin-top: 5px;">
+            <h5><u>Javascript</u></h5>
             <p>After downloading the module into your project, you can import the library into your script.</p>
-            <pre style="
-            background-color: lightgrey;
-            padding: 15px;
-            border-radius: 20px;
-            ">
+            <pre>
             import { 
                 mainContainer, flipCardHover, flipCardClick, bookAnimation, bookFlip
             } from './CardAndBookFlipping/Flipping.js';
@@ -108,6 +106,63 @@
                     <li><strong>Transition:</strong> integer</li>
                     <p>Default: 1s <br>Description: Width of the Card or Book</p>
                 </ul>
+            </div>
+
+            <div class="container">
+                <h5><u>HTML Usage</u></h5>
+                <h6>Main Container</h6>
+                <code><pre>
+    &ltdiv class="mainContainer"&gt
+        [Insert Card/Book code]
+    &lt/div&gt</pre></code>
+                <h6>Card Flip: onClick</h6>
+                <pre>
+    &ltdiv class="card clickCard"&gt
+        &ltdiv class="frontCard"&gt
+            ...
+        &lt/div&gt
+        &ltdiv class="backCard"&gt
+            ...
+        &lt/div&gt
+    &lt/div&gt</pre>
+                <h6>Card Flip: onHover</h6>
+                <code><pre>
+    &ltdiv class="card hoverCard"&gt
+        &ltdiv class="frontCard"&gt
+            ...
+        &lt/div&gt
+        &ltdiv class="backCard"&gt
+            ...
+        &lt/div&gt
+    &lt/div&gt</pre></code>
+                <h6>Adding and Removing Flipping Cards</h6>
+                <code><pre>
+    &ltdiv class="mainContainer allowEditCards"&gt&lt/div&gt</pre></code>
+                <h6>Book Animation: 3D Animation</h6>
+                <code><pre>
+    &ltdiv class="bookContainer"&gt
+        &ltdiv class="book" id="book1"&gt
+            &ltimg src="[IMG SOURCE]" alt=""&gt
+        &lt/div&gt
+    &lt/div&gt</pre></code>
+
+                <h6>Book Flip: Flip a page</h6>
+                <code><pre>
+    &ltdiv class="bookFlip"&gt
+        &ltdiv class="flip"&gt
+            &ltdiv class="frontCover"&gt
+                ...
+            &lt/div&gt
+
+            &ltdiv class="backCover"&gt
+                ...
+            &lt/div&gt    
+        &lt/div&gt
+
+        &ltdiv class="contentCover"&gt
+            ...
+        &lt/div&gt
+    &lt/div&gt</pre></code>
             </div>
         </div>
     </div>
