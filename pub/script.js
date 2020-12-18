@@ -2,7 +2,8 @@ import {
     mainContainer, 
     flipCardHover, 
     flipCardClick, 
-    bookAnimation 
+    bookAnimation,
+    bookFlip
 } from './CardAndBookFlipping/Flipping.js';
 
 mainContainer({});
@@ -17,6 +18,12 @@ flipCardClick({
     width: 250,
     height: 320,
     transitionLength: 1
+});
+
+bookFlip({
+    width: 250,
+    height: 320,
+    transitionLength: 0.75
 });
 
 bookAnimation({

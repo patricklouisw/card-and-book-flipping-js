@@ -14,6 +14,7 @@ const defaultBookTransitionLength = "0.5s";
 
 let hoverOptions;
 let clickOptions;
+let bookHoverOptions;
 
 // === Shelf Container ===
 function mainContainer() {
@@ -30,9 +31,10 @@ function mainContainer() {
 
         // Add Card or Not
         const classesInContainer = container.className.split(" ");
-        const result = classesInContainer.findIndex(c => c === "allowEditCards");
+        const editCards = classesInContainer.findIndex(c => c === "allowEditCards");
+        const createBook = classesInContainer.findIndex(c => c === "createBook");
 
-        if (result > 0) {
+        if (editCards > 0) {
 
             const index = _modalIndex;
             _modalIndex++;
@@ -51,7 +53,7 @@ function mainContainer() {
             button.style.backgroundColor = "black";
             button.style.color = "white";
             button.style.cursor = "pointer";
-            button.addEventListener("click", () => addModal(container));
+            button.addEventListener("click", () => addCardModal(container));
             
             container.insertBefore(button, container.firstChild);
         }
@@ -60,7 +62,7 @@ function mainContainer() {
 }
 
 // === HELPER: MODAL ===
-function addModal(mainContainer){
+function addCardModal(mainContainer){
 
     let line = document.createElement("hr");
     line.style.marginTop = 0;
@@ -78,7 +80,7 @@ function addModal(mainContainer){
     closeModal.className = "closeModal";
     closeModal.innerHTML = "&times";
     let title = document.createElement("h4");
-    title.innerText = "Edit Cards";
+    title.innerText = "Add or Remove Cards";
     title.style.display = "inline-block";
     title.style.marginTop = "10px";
 
@@ -136,11 +138,12 @@ function addModal(mainContainer){
     backCard.setAttribute("id", "newModalBack");
 
     let clickRadio = document.createElement("input");
-    // log("clickRadio: ", clickRadio);
+    log("clickRadio: ", clickRadio);
     clickRadio.type = "radio";
     clickRadio.id = "onClick";
     clickRadio.name = "flipOption";
     clickRadio.value = "clickCard";
+    clickRadio.checked = true;
     let clickLabel = document.createElement("label");
     clickLabel.setAttribute("for", "onClick");
     clickLabel.innerText = "Click";
@@ -435,6 +438,85 @@ function bookAnimation(options)
     books(allBookContainer, allBooks, options);
 }
 
+function bookFlip(options)
+{
+    bookHoverOptions = options;
+
+    const allBookFlip = document.querySelectorAll(".bookFlip");
+    log(allBookFlip)
+
+    let bookWidth = defaultBookWidth;
+    let bookHeight = defaultBookHeight;
+    let bookTransitionLength = defaultBookTransitionLength;
+
+    if (options.width > 0){
+        bookWidth = options.width.toString() +"px"
+    }
+    if (options.height > 0){
+        bookHeight = options.height.toString() +"px"
+    }
+    if (options.transitionLength > 0){
+        bookTransitionLength = options.transitionLength.toString() +"s"
+    }
+
+    allBookFlip.forEach(book => {
+
+        book.style.width = bookWidth;
+        book.style.height = bookHeight;
+        book.style.position = "relative";
+
+        const flipCover = book.querySelector(".flip");
+        const front = flipCover.querySelector(".frontCover");
+        const back = flipCover.querySelector(".backCover");
+        const contentCover = book.querySelector(".contentCover");
+
+        flipCover.style.width = bookWidth;
+        flipCover.style.height = bookHeight;
+        flipCover.style.transformStyle = "preserve-3d";
+        flipCover.style.transformOrigin = "left";
+        flipCover.style.transform = "rotateY(0deg)";
+        flipCover.style.perspective = "1500px";
+        flipCover.style.transition = "all "+ bookTransitionLength +" ease";
+        flipCover.style.marginBottom = "30px";
+        flipCover.style.zIndex = 0;
+
+        front.style.position = "absolute";
+        front.style.width = "100%";
+        front.style.height = "100%";
+        front.style.backfaceVisibility = "hidden";
+        front.style.backgroundColor = defaultBgColor;
+
+        back.style.transformStyle = "absolute";
+        back.style.width = "100%";
+        back.style.height = "100%";
+        back.style.backfaceVisibility = "hidden";
+        back.style.transform = "rotateY(180deg)";
+        back.style.backgroundColor = "white";
+        back.style.padding = "15px";
+        back.style.border = "2px solid black";
+
+        contentCover.style.position = "absolute";
+        contentCover.style.top = 0;
+        contentCover.style.left = 0;
+        contentCover.style.width = "100%";
+        contentCover.style.height = "100%";
+        contentCover.style.backgroundColor = "white";
+        contentCover.style.zIndex = -1;
+        contentCover.style.padding = "15px";
+        contentCover.style.border = "2px solid black";
+
+        
+
+        book.addEventListener("mouseover", () => {
+            flipCover.style.transform = "rotateY(160deg)";
+            });
+        book.addEventListener("mouseout", () => {
+            flipCover.style.transform = "rotateY(0deg)";
+            });
+
+    });
+
+}
 
 // === HELPER FUNCTIONS ===
 function books(bookContainer, books, options){
@@ -558,9 +640,11 @@ function onHover(card)
 {   
     card.addEventListener("mouseover", () => {
         card.style.transform = "rotateY(180deg)";
+        card.style.boxShadow = "-20px 20px 20px rgba(0, 0, 0, 0.2)";
     });
     card.addEventListener("mouseout", () => {
         card.style.transform = "rotateY(0deg)";
+        card.style.boxShadow = "20px 20px 20px rgba(0, 0, 0, 0.2)";
     });
 }
 
@@ -578,4 +662,4 @@ function onClickFlip(card){
     }
 }
 
-export {mainContainer, flipCardHover, flipCardClick, bookAnimation };
+export {mainContainer, flipCardHover, flipCardClick, bookAnimation, bookFlip };
