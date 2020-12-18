@@ -9,25 +9,25 @@ import {
 mainContainer({});
 
 flipCardHover({
-    width: 250,
-    height: 320,
+    width: 350,
+    height: 200,
     transitionLength: 1
 });
 
 flipCardClick({
-    width: 250,
-    height: 320,
+    width: 350,
+    height: 200,
     transitionLength: 1
 });
 
 bookFlip({
-    width: 250,
-    height: 320,
+    width: 200,
+    height: 275,
     transitionLength: 0.75
 });
 
 bookAnimation({
-    width: 250,
-    height: 320,
+    width: 200,
+    height: 275,
     transitionLength: 1
 })

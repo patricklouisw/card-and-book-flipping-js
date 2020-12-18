@@ -464,6 +464,7 @@ function bookFlip(options)
         book.style.width = bookWidth;
         book.style.height = bookHeight;
         book.style.position = "relative";
+        book.style.marginBottom = "15px";
 
         const flipCover = book.querySelector(".flip");
         const front = flipCover.querySelector(".frontCover");

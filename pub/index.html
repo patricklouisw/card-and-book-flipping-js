@@ -10,170 +10,275 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Book Reviews</a>
+        <a class="navbar-brand" href="#">Flipping JS</a>
     </nav>
 
     <div class="header">
         <img src="./images/book.png" alt="">
-        <h1 id="title">BOOK REVIEWS</h1>
+        <h1 id="title">Flipping JS</h1>
     </div>
 
-    <div class="container">
-        <h2>Today's Book Reviewer</h2>
-        <hr>
-        <p>(DEMO: Showing flipping the front and the back of the card by clicking on it)</p>
-        <div class="mainContainer">
-            <div class="card clickCard">
-                <div class="frontCard front">
-                    <h2>John Smith</h2>
-                    (Click to read more)
-                </div>
-                <div class="backCard back">
-                    Great reader
-                </div>
-            </div>
+    <div class="container" style="margin-bottom: 35px;">
+        <h4>Table of Contents</h4>
+        <ol>
+            <li>Description</li>
+            <li>Documentation</li>
+            <li>Demo</li>
+        </ol>
+    </div>
 
-            <div class="card clickCard">
-                <div class="frontCard front">
-                    <h2>Sarah Smith</h2>
-                    (Click to read more)
-                </div>
-                <div class="backCard back">
-                    Great reader
-                </div>
-            </div>
+    <div class="container" style="margin-bottom: 35px;">
+        <h2>Description</h2>
+        <hr>
+        <div class="container">
+            A library to about <strong>Flipping containers.</strong>
+            This include:
+            <ul>
+                <li>Card Flip: onClick</li>
+                <li>Card Flip: onHover</li>
+                <li>Adding and Removing Flipping Cards</li>
+                <li>Book Animation: 3D Animation</li>
+                <li>Book Flip: Flip a page</li>
+            </ul>
+            This makes it easier for Developer to implement cards and book flipping.
         </div>
     </div>
-
-    <div class="container">
-        <h2>Special Guest</h2>
-        <hr>
-        <p>(DEMO: Showing flipping the front and the back of the card by hovering on it)</p>
-        <div class="mainContainer">
-            <div class="card hoverCard">
-                <div class="frontCard front">
-                    <h2>Sarah Smith</h2>
-                    (Hover to read more)
-                </div>
-                <div class="backCard back">
-                    Great Reader
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <h2>Today's Book Review</h2>
-        <hr>
-        <p>(DEMO: Showing digital book in a book form )</p>
-        <div class="mainContainer">
-            <div class="bookContainer">
-                <div class="book" id="book1">
-                    <img src="./images/book1.jpg" alt="">
-                </div>
-            </div>
-        
-            <div class="bookContainer">
-                <div class="book">
-                    <img src="./images/book2.jpg" alt="">
-                </div>
-            </div>
     
-            <div class="bookContainer">
-                <div class="book">
-                    <img src="./images/book3.jpg" alt="">
-                </div>
-            </div>            
+    <div class="container" style="margin-bottom: 35px;">
+        <h2>Documentation</h2>
+        <hr>
+        <div class="container">
+            <h5>Getting Started</h5>
+            <p>After downloading the module into your project, you can import the library into your script.</p>
+            <pre style="
+            background-color: lightgrey;
+            padding: 15px;
+            border-radius: 20px;
+            ">
+            import { 
+                mainContainer, flipCardHover, flipCardClick, bookAnimation, bookFlip
+            } from './CardAndBookFlipping/Flipping.js';
+        
+            mainContainer({});
+            flipCardHover({
+                width: 350,
+                height: 200,
+                transitionLength: 1
+            });
+            flipCardClick({
+                width: 350,
+                height: 200,
+                transitionLength: 1
+            });
+            bookFlip({
+                width: 200,
+                height: 275,
+                transitionLength: 0.75
+            });
+            bookAnimation({
+                width: 200,
+                height: 275,
+                transitionLength: 1
+            });
+            </pre>
+            <div class="container">
+                <h5>Methods</h5>
+                <hr style="margin-top: 5px;">
+                <ul>
+                    <li><strong>mainContainer({})</strong></li>
+                    <p>Description: function to set up the container for cards or books</p>
+                    <li><strong>flipCardHover(options)</strong></li>
+                    <p>Description: function to configure hover card flipping</p>
+                    <li><strong>flipCardClick(options)</strong></li>
+                    <p>Description: function to configure click card flipping</p>
+                    <li><strong>bookFlip(options)</strong></li>
+                    <p>Description: function to configure hover book flipping</p>
+                    <li><strong>bookAnimation(options)</strong></li>
+                    <p>Description: function to configure hover for book animation</p>
+                </ul>
+            </div>
+            <div class="container">
+                <h5>Options </h5>
+                <hr style="margin-top: 5px;">
+                <ul>
+                    <li><strong>Width: </strong> integer</li>
+                    <p>Default: 250px <br>Description: Width of the Card or Book</p>
+                    <li><strong>Height: </strong> integer</li>
+                    <p>Default: 320px <br>Description: Width of the Card or Book</p>
+                    <li><strong>Transition:</strong> integer</li>
+                    <p>Default: 1s <br>Description: Width of the Card or Book</p>
+                </ul>
+            </div>
         </div>
     </div>
-
+    
     <div class="container">
-        <h2>Book Summary per book</h2>
+        <h2>Demo</h2>
         <hr>
-        <p>(DEMO: Flip Book Page )</p>
-        <div class="mainContainer">
-
-            <div class="bookFlip">
-                <div class="flip">
-                    <div class="frontCover">
+        <div class="container">
+            <h4>Card Flip: onClick</h4>
+            <p>(DEMO: Showing flipping the front and the back of the card by clicking on it)</p>
+            <div class="mainContainer">
+                <div class="card clickCard">
+                    <div class="frontCard front">
+                        <h4>John Smith</h4>
+                        (Click to read more)
+                    </div>
+                    <div class="backCard back">
+                        Great reader
+                    </div>
+                </div>
+    
+                <div class="card clickCard">
+                    <div class="frontCard front">
+                        <h4>Sarah Smith</h4>
+                        (Click to read more)
+                    </div>
+                    <div class="backCard back">
+                        Great reader
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <h4>Card Flip: onHover</h4>
+            
+            <p>(DEMO: Showing flipping the front and the back of the card by hovering on it)</p>
+            <div class="mainContainer">
+                <div class="card hoverCard">
+                    <div class="frontCard front">
+                        <h4>Sarah Smith</h4>
+                        (Hover to read more)
+                    </div>
+                    <div class="backCard back">
+                        Great Reader
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <h4>Adding and Removing Flipping Cards</h4>
+            
+            <p>(DEMO: Adding and removing Card with the complex hover and click flip card functionality )</p>
+            <div class="mainContainer allowEditCards">
+                <div class="card clickCard">
+                    <div class="frontCard front">
+                        <h4>John Smith's Review</h4>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing 
+                        elit. Excepturi ipsam inventore quibusdam
+                        (Click to read more)
+                    </div>
+                    <div class="backCard back">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing 
+                        elit. Excepturi ipsam inventore quibusdam
+                        (Click to read more)
+                    </div>
+                </div>
+    
+                <div class="card clickCard">
+                    <div class="frontCard front">
+                        <h4>Sarah Smith's Review</h4>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing 
+                        elit. Excepturi ipsam inventore quibusdam, aperiam 
+                        incidunt natus quidem molestias nihil!
+                        (Click to read more)
+                    </div>
+                    <div class="backCard back">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing 
+                        elit. Excepturi ipsam inventore quibusdam, aperiam 
+                        incidunt natus quidem molestias nihil!
+                        (Click to read more)
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    
+        <div class="container">
+            <h4>Book Animation: 3D Animation</h4>
+            
+            <p>(DEMO: Showing digital book in a book form )</p>
+            <div class="mainContainer">
+                <div class="bookContainer">
+                    <div class="book" id="book1">
                         <img src="./images/book1.jpg" alt="">
                     </div>
-
-                    <div class="backCover">
-                        <h6>Quotes of the day</h6>
-                        <p>Fight</p>
-                    </div>    
                 </div>
-
-                <div class="contentCover">
-                    Content
-                </div>
-            </div>
-
-            <div class="bookFlip">
-                <div class="flip">
-                    <div class="frontCover">
+            
+                <div class="bookContainer">
+                    <div class="book">
                         <img src="./images/book2.jpg" alt="">
                     </div>
-
-                    <div class="backCover">
-                        <h6>Quotes of the day</h6>
-                        <p>Fight</p>
-                    </div>    
                 </div>
-
-                <div class="contentCover">
-                    Content
-                </div>
-            </div>
-            <div class="bookFlip">
-                <div class="flip">
-                    <div class="frontCover">
+        
+                <div class="bookContainer">
+                    <div class="book">
                         <img src="./images/book3.jpg" alt="">
                     </div>
-
-                    <div class="backCover">
-                        <h6>Quotes of the day</h6>
-                        <p>Fight</p>
-                    </div>    
+                </div>            
+            </div>
+        </div>
+    
+        <div class="container">
+            <h4>Book Flip: Flip a page</h4>
+            
+            <p>(DEMO: Flip Book Page )</p>
+            <div class="mainContainer">
+    
+                <div class="bookFlip">
+                    <div class="flip">
+                        <div class="frontCover">
+                            <img src="./images/book1.jpg" alt="">
+                        </div>
+    
+                        <div class="backCover">
+                            <h6>Quotes of the day</h6>
+                            <p>Fight</p>
+                        </div>    
+                    </div>
+    
+                    <div class="contentCover">
+                        Content
+                    </div>
                 </div>
-                <div class="contentCover">
-                    Content
+    
+                <div class="bookFlip">
+                    <div class="flip">
+                        <div class="frontCover">
+                            <img src="./images/book2.jpg" alt="">
+                        </div>
+    
+                        <div class="backCover">
+                            <h6>Quotes of the day</h6>
+                            <p>Fight</p>
+                        </div>    
+                    </div>
+    
+                    <div class="contentCover">
+                        Content
+                    </div>
+                </div>
+                <div class="bookFlip">
+                    <div class="flip">
+                        <div class="frontCover">
+                            <img src="./images/book3.jpg" alt="">
+                        </div>
+    
+                        <div class="backCover">
+                            <h6>Quotes of the day</h6>
+                            <p>Fight</p>
+                        </div>    
+                    </div>
+                    <div class="contentCover">
+                        Content
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <h2>Reviews!!</h2>
-        <hr>
-        <p>(DEMO: Adding and removing Card with the complex hover and click flip card functionality )</p>
-        <div class="mainContainer allowEditCards">
-            <div class="card clickCard">
-                <div class="frontCard front">
-                    <h4>John Smith's Review</h4>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi ipsam inventore quibusdam, aperiam incidunt natus quidem molestias nihil! Expedita saepe ipsum totam accusantium nisi recusandae quibusdam obcaecati aperiam aliquam quia.
-                    (Click to read more)
-                </div>
-                <div class="backCard back">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi ipsam inventore quibusdam, aperiam incidunt natus quidem molestias nihil! Expedita saepe ipsum totam accusantium nisi recusandae quibusdam obcaecati aperiam aliquam quia.
-                </div>
-            </div>
-
-            <div class="card clickCard">
-                <div class="frontCard front">
-                    <h4>Sarah Smith's Review</h4>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi ipsam inventore quibusdam, aperiam incidunt natus quidem molestias nihil! Expedita saepe ipsum totam accusantium nisi recusandae quibusdam obcaecati aperiam aliquam quia.
-                    (Click to read more)
-                </div>
-                <div class="backCard back">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi ipsam inventore quibusdam, aperiam incidunt natus quidem molestias nihil! Expedita saepe ipsum totam accusantium nisi recusandae quibusdam obcaecati aperiam aliquam quia.
-                </div>
-            </div>
-
-        </div>
-    </div>
-
+      
     <div class="container-fluid bg-dark footer">
         <h4>Copyright 2020 | Made by Patrick Louis </h4>
     </div>
