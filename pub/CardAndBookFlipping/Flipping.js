@@ -611,7 +611,9 @@ function cards(cards, options)
         card.style.transition = "all "+ cardTransitionLength +" ease";
         card.style.boxShadow = "20px 20px 20px rgba(0, 0, 0, 0.2)";
         card.style.borderRadius = "20px";
-        card.style.marginBottom = "30px"
+        card.style.marginBottom = "30px";
+        card.style.marginLeft = "8px";
+        card.style.marginRight = "8px";
     });
 
     allFrontCards.forEach(frontCard => {

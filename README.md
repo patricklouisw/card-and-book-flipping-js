@@ -1,4 +1,4 @@
-# Flippingjs (js-library-louispat)
+# FlippingJS (js-library-louispat)
 
 To view my sample application, https://immense-fjord-27450.herokuapp.com/
 
