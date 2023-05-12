@@ -1,6 +1,6 @@
 # FlippingJS (js-library-louispat)
 
-To view my sample application, https://immense-fjord-27450.herokuapp.com/
+To view my sample application, clone this repo and run `npm start`
 
 ## Explanation of Library
 
